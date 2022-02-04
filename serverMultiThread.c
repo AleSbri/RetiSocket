@@ -46,8 +46,8 @@ int main(int argc, char const *argv[]) {
   }
 
   while(1){
-    client_len = sizeof(client_addr);
-    if (new_socket=accept(server_fd,(struct sockaddr *)&client_addr,client_len)<0) {
+    client_len = sizeof(address);
+    if (new_socket=accept(server_fd,(struct sockaddr *)&address,client_len)<0) {
       perror("accept errore");
       exit(1);
     }
