@@ -11,7 +11,7 @@
 
 void *saluta(void *arg){
   char * msg="sono la funzione saluta";
-  int sd = *((int *) arg;
+  int sd = *(int *) arg;
   write(sd,msg,strlen(msg));
   close(sd);
   free(arg);
@@ -59,6 +59,5 @@ int main(int argc, char const *argv[]) {
     pthread_create(&tid,NULL,saluta,(void *)thread_fd);
 
   }
-
 
 }
