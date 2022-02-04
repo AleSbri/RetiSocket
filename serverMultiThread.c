@@ -54,7 +54,7 @@ int main(int argc, char const *argv[]) {
 
     thread_fd = (int *)malloc(sizeof(int));
 
-    *thread_fd=new_socket;
+    thread_fd=new_socket;
 
     pthread_create(&tid,NULL,saluta,(void *)thread_fd);
 
