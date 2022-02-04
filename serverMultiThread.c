@@ -26,7 +26,7 @@ int main(int argc, char const *argv[]) {
   socklen_t client_len;
   pthread_t tid;
 
-  if(server_fd=socket(AF_INET,SOCK_STREAM,0)==0){
+  	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0){
     perror("errore socket");
     exit(0);
   }
