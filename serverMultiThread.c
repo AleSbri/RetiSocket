@@ -12,7 +12,7 @@
 void *saluta(void * arg){
   char * msg="sono la funzione saluta";
   int sd = *((int *) arg);
-  write(sd,msg,strlen(msg));
+  send(sd,msg,strlen(msg),0);
 
 	pthread_exit(NULL);
 
