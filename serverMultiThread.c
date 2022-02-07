@@ -9,9 +9,9 @@
 
 #define PORT 8080
 
-void *saluta(int arg){
+void *saluta(void * arg){
   char * msg="sono la funzione saluta";
-  int sd = arg;
+  int sd = *((int *)) arg;
   write(sd,msg,strlen(msg));
   close(sd);
   free(arg);
@@ -48,16 +48,16 @@ int main(int argc, char const *argv[]) {
   while(1){
     printf("sto aspettando il cliente\n");
     client_len = sizeof(address);
-    if ((new_socket=accept(server_fd,(struct sockaddr *)&address,&client_len))<0) {
+    if ((new_socket=accept(server_fd,(struct sockaddr *)&address,client_len))<0) {
       perror("accept errore");
       exit(1);
     }
 
-  //  thread_fd = (int *)malloc(sizeof(int));
+    thread_fd = (int *)malloc(sizeof(int));
 
-    //thread_fd=new_socket;
+    thread_fd=new_socket;
 
-    pthread_create(&tid,NULL,saluta,new_socket);
+    pthread_create(&tid,NULL,saluta,(void *)thread_fd);
 
   }
 
