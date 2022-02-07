@@ -10,6 +10,7 @@
 #define PORT 8080
 
 void *saluta(void * arg){
+	char buffer[1024]={0};
   char * msg="sono la funzione saluta";
   int sd = *((int *) arg);
 	int valread = read( sd , buffer, 1024);
