@@ -12,6 +12,8 @@
 void *saluta(void * arg){
   char * msg="sono la funzione saluta";
   int sd = *((int *) arg);
+	int valread = read( sd , buffer, 1024);
+	             printf("%s\n",buffer );
   send(sd,msg,strlen(msg),0);
 
 	pthread_exit(NULL);
