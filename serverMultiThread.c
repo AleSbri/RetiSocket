@@ -15,7 +15,7 @@ void *saluta(void * arg){
   int sd = *((int *) arg);
 	int valread = read( sd , buffer, 1024);
 	             printf("%s\n",buffer );
-  send(sd,msg,strlen(msg),0);
+  write(sd,msg,strlen(msg));
 	
 	close(sd);
 
