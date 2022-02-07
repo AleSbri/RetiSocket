@@ -9,9 +9,9 @@
 
 #define PORT 8080
 
-void *saluta(void *arg){
+void *saluta(int arg){
   char * msg="sono la funzione saluta";
-  int sd = (int *) arg;
+  int sd = arg;
   write(sd,msg,strlen(msg));
   close(sd);
   free(arg);
@@ -57,7 +57,7 @@ int main(int argc, char const *argv[]) {
 
     //thread_fd=new_socket;
 
-    pthread_create(&tid,NULL,saluta,(void *)new_socket);
+    pthread_create(&tid,NULL,saluta,new_socket);
 
   }
 
