@@ -53,6 +53,10 @@ int main(int argc, char const *argv[]) {
       exit(1);
     }
 
+  //  thread_fd = (int *)malloc(sizeof(int));
+
+    //thread_fd=new_socket;
+
     pthread_create(&tid,NULL,saluta,(void *)new_socket);
 
   }
