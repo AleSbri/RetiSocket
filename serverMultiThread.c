@@ -18,9 +18,9 @@ void *saluta(void * arg){
   write(sd,msg,strlen(msg));
 	
 	close(sd);
-	free(arg);
+	//free(arg);
 
-	pthread_exit(NULL);
+	//pthread_exit(NULL);
 
 }
 
