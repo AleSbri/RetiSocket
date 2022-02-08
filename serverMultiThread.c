@@ -12,7 +12,7 @@
 void *saluta(void * arg){
 	int buffer=0;
   int sd = *((int *) arg);
-	int valread = read( sd , &buffer, sizeof(int));
+	int valread = read( sd , &buffer, sizeof(buffer));
 	
 	             printf("%d\n",ntohl(buffer));
 	buffer = buffer +25;
