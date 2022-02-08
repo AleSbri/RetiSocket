@@ -6,17 +6,18 @@
 #include <string.h>
 #include <netinet/in.h>
 #include <pthread.h>
+#include <stdint.h>
 
 #define PORT 8080
 
 void *saluta(void * arg){
-	int buffer=0;
+	uint32_t buffer=0;
   int sd = *((int *) arg);
 	int valread = read( sd , &buffer, sizeof(buffer));
 	
 	             printf("%d\n",ntohl(buffer));
 	buffer = buffer +25;
-	int converted_number = htonl(buffer);
+	uint32_t converted_number = htonl(buffer);
   write(sd,&converted_number,sizeof(converted_number));
 	
 	close(sd);
