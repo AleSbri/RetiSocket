@@ -11,14 +11,18 @@
 #define PORT 8080
 
 void *saluta(void * arg){
-	uint32_t buffer=0;
+	int32_t buffer;
+	char *data=(char*)&buffer;
+	int size=sizeof(buffer);
   int sd = *((int *) arg);
-	int valread = read( sd , &buffer, sizeof(buffer));
-	
-	             printf("%d\n",ntohl(buffer));
-	buffer = buffer +25;
-	uint32_t converted_number = htonl(buffer);
-  write(sd,&converted_number,sizeof(converted_number));
+	int valread = read( sd , data , size);
+	int buffer1 = ntohl(buffer);
+	             printf("%d\n",buffer1);
+	buffer1 = buffer1 +25;
+	int32_t converted_number = htonl(buffer1);
+	char *data1=(char*)converted_number;
+	int size1=sizeof(converted_number);
+  write(sd,data1,size1);
 	
 	close(sd);
 	//free(arg);
