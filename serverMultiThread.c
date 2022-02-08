@@ -17,7 +17,7 @@ void *saluta(void * arg){
   int sd = *((int *) arg);
 	int valread = read( sd , data , size);
 	int buffer1 = ntohl(buffer);
-	             printf("%d\n",buffer1);
+	             printf("%d\n",data);
 	buffer1 = buffer1 +25;
 	int32_t converted_number = htonl(buffer1);
 	char *data1=(char*)&converted_number;
