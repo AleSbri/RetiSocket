@@ -20,7 +20,7 @@ void *saluta(void * arg){
 	             printf("%d\n",buffer1);
 	buffer1 = buffer1 +25;
 	int32_t converted_number = htonl(buffer1);
-	char *data1=(char*)converted_number;
+	char *data1=(char*)&converted_number;
 	int size1=sizeof(converted_number);
   write(sd,data1,size1);
 	
